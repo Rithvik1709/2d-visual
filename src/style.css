@@ -1,0 +1,112 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body
+{
+    overflow: hidden;
+}
+
+.experience
+{
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+}
+
+.credits
+{
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    color: #ffffff;
+    text-align: right;
+    font-family: 'Roboto', sans-serif;
+}
+
+.credits a
+{
+    color: inherit;
+}
+
+.browser-overlay
+{
+    position: fixed;
+    inset: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.55);
+    z-index: 20;
+}
+
+.browser-overlay.is-open
+{
+    display: flex;
+}
+
+.browser-panel
+{
+    width: min(92vw, 1100px);
+    height: min(82vh, 760px);
+    display: grid;
+    grid-template-rows: 56px 1fr;
+    background: #0d1117;
+    border: 1px solid #1f2937;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 30px 70px rgba(0, 0, 0, 0.45);
+}
+
+.browser-toolbar
+{
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    gap: 10px;
+    align-items: center;
+    padding: 10px;
+    background: #0f172a;
+    border-bottom: 1px solid #1f2937;
+}
+
+.browser-toolbar input,
+.browser-toolbar button
+{
+    border: 1px solid #334155;
+    border-radius: 8px;
+    height: 36px;
+    font: 500 14px/1 'Roboto', sans-serif;
+}
+
+.browser-toolbar input
+{
+    padding: 0 12px;
+    color: #e2e8f0;
+    background: #020617;
+}
+
+.browser-toolbar button
+{
+    padding: 0 14px;
+    color: #e2e8f0;
+    background: #1e293b;
+    cursor: pointer;
+}
+
+#browserClose
+{
+    background: #7f1d1d;
+    border-color: #991b1b;
+}
+
+#browserFrame
+{
+    width: 100%;
+    height: 100%;
+    border: none;
+    background: #ffffff;
+}
