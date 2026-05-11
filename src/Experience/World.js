@@ -179,12 +179,31 @@ export default class World
 
             this.raycaster.setFromCamera(this.pointer, this.camera.instance)
 
-            // Cast rays to all objects in scene to detect any click in the 3D view
-            const allIntersects = this.raycaster.intersectObjects(this.scene.children, true)
-            
-            if(allIntersects.length > 0)
+            // Raycast against the whole scene (recursive)
+            const intersects = this.raycaster.intersectObjects(this.scene.children, true)
+            if(intersects.length === 0) return
+
+            const hit = intersects[0].object
+
+            // Helper: determine if `hit` is a descendant of the macScreen root mesh
+            const isDescendant = (child, parent) =>
             {
-                this.openBrowserOverlay(this.browserUrl ? this.browserUrl.value : '/browser-home.html')
+                let o = child
+                while(o)
+                {
+                    if(o === parent) return true
+                    o = o.parent
+                }
+                return false
+            }
+
+            if(this.macScreen && this.macScreen.model && this.macScreen.model.mesh)
+            {
+                const screenRoot = this.macScreen.model.mesh
+                if(isDescendant(hit, screenRoot))
+                {
+                    this.openBrowserOverlay(this.browserUrl ? this.browserUrl.value : '/browser-home.html')
+                }
             }
         }
 
