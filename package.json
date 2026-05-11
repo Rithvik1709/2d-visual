@@ -4,6 +4,7 @@
   "scripts": {
     "build": "NODE_OPTIONS=--openssl-legacy-provider webpack --config ./bundler/webpack.prod.js",
     "dev": "NODE_OPTIONS=--openssl-legacy-provider webpack serve --config ./bundler/webpack.dev.js",
+    "vercel-build": "NODE_OPTIONS=--openssl-legacy-provider webpack --config ./bundler/webpack.prod.js",
     "prod": "git switch prod; git merge main; git push; git switch main"
   },
   "dependencies": {
